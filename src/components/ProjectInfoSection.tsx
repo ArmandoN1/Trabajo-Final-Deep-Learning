@@ -18,7 +18,6 @@ export default function ProjectInfoSection() {
           </p>
         </div>
 
-        {/* Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <div className="liquid-glass-heavy rounded-2xl p-8">
             <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3">
@@ -56,8 +55,7 @@ export default function ProjectInfoSection() {
             <p className="text-white/50 text-sm leading-relaxed mb-6">
               Al finalizar el presente trabajo final, el estudiante tendrá la competencia de poseer un sólido
               entendimiento de los principios fundamentales del Deep Learning, incluyendo la estructura de las
-              redes neuronales artificiales, y estar familiarizado con sus principales áreas de aplicación en
-              el ámbito comercial empresarial.
+              redes neuronales artificiales, y estar familiarizado con sus principales áreas de aplicación.
             </p>
             <div className="space-y-3">
               {[
@@ -74,7 +72,6 @@ export default function ProjectInfoSection() {
           </div>
         </div>
 
-        {/* Evidencias requeridas */}
         <div className="liquid-glass-card rounded-2xl p-8">
           <h3 className="text-white font-bold text-lg mb-6 flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center">
@@ -84,19 +81,19 @@ export default function ProjectInfoSection() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { num: '1', title: 'Análisis del Dataset', desc: 'Analizar el conjunto de datos y aplicar técnicas de preprocesamiento de imágenes médicas.', status: '✓ Completado' },
-              { num: '2', title: 'Entrenamiento del Modelo', desc: 'Entrenar y validar un modelo de deep learning para la detección de anomalías radiológicas.', status: '✓ Completado' },
-              { num: '3', title: 'Evaluación de Métricas', desc: 'Evaluar el rendimiento del modelo mediante precisión, sensibilidad y F1-score.', status: '✓ Completado' },
-              { num: '4', title: 'Interfaz de Visualización', desc: 'Implementar una interfaz sencilla para visualizar las predicciones y resultados.', status: '✓ Completado' },
-              { num: '5', title: 'Documentación', desc: 'Documentar el proceso y presentar conclusiones sobre la viabilidad del sistema.', status: '✓ Completado' },
-              { num: '6', title: 'Dataset Público', desc: 'Utilizar Chest X-Ray Dataset de Kaggle (paultimothymooney/chest-xray-pneumonia).', status: '✓ Completado' },
+              { num: '1', title: 'Análisis del Dataset', desc: 'Analizar el conjunto de datos y aplicar técnicas de preprocesamiento.' },
+              { num: '2', title: 'Entrenamiento del Modelo', desc: 'Entrenar y validar un modelo de deep learning para detección de anomalías.' },
+              { num: '3', title: 'Evaluación de Métricas', desc: 'Evaluar el rendimiento mediante precisión, sensibilidad y F1-score.' },
+              { num: '4', title: 'Interfaz de Visualización', desc: 'Implementar una interfaz para visualizar predicciones y resultados.' },
+              { num: '5', title: 'Documentación', desc: 'Documentar el proceso y presentar conclusiones sobre la viabilidad.' },
+              { num: '6', title: 'Dataset Público', desc: 'Utilizar Chest X-Ray Dataset de Kaggle (paultimothymooney).' },
             ].map((ev) => (
-              <div key={ev.num} className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:-translate-y-1 transition-all group">
+              <div key={ev.num} className="p-5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:-translate-y-1 transition-all">
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center text-white text-xs font-black">
                     {ev.num}
                   </div>
-                  <span className="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full">{ev.status}</span>
+                  <span className="text-emerald-400 text-[10px] font-bold bg-emerald-500/10 px-2.5 py-1 rounded-full">✓ Completado</span>
                 </div>
                 <h4 className="text-white text-sm font-bold mb-1">{ev.title}</h4>
                 <p className="text-white/35 text-xs leading-relaxed">{ev.desc}</p>

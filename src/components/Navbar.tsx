@@ -6,12 +6,15 @@ interface NavbarProps {
 }
 
 const navLinks = [
+  { label: 'Proyecto', href: '#proyecto' },
   { label: 'Problemática', href: '#problema' },
-  { label: 'Solución', href: '#solucion' },
-  { label: 'Arquitectura', href: '#arquitectura' },
+  { label: 'Dataset', href: '#dataset' },
+  { label: 'CNN', href: '#cnn-arquitectura' },
+  { label: 'Entrenamiento', href: '#entrenamiento' },
+  { label: 'Métricas', href: '#metricas' },
   { label: 'Dashboard', href: '#dashboard' },
   { label: 'Demo', href: '#demo' },
-  { label: 'Beneficios', href: '#beneficios' },
+  { label: 'Preguntas', href: '#preguntas' },
   { label: 'Conclusiones', href: '#conclusiones' },
 ]
 

@@ -30,7 +30,7 @@ import TechBar from './components/TechBar'
 import { ChevronUp } from 'lucide-react'
 
 
-const BG_VIDEO = 'https://cdn.pixabay.com/video/2024/04/11/207835_large.mp4'
+const BG_VIDEO = 'https://www.pexels.com/es-es/download/video/7255101/'
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)

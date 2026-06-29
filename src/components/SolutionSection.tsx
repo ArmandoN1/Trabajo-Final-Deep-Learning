@@ -19,8 +19,30 @@ const cards = [
 export default function SolutionSection() {
   return (
     <section id="solucion" className="relative bg-gray-900 py-24 sm:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(16,185,129,0.04),transparent_60%)]" />
+      
+      {/* ================= Fondo Tecnológico ================= */}
 
+      {/* Glow superior */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_40%)] pointer-events-none" />
+
+      {/* Glow inferior */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.08),transparent_45%)] pointer-events-none" />
+
+      {/* Grid 3D */}
+      <div
+        className="
+          absolute
+          inset-0
+          opacity-[0.06]
+          pointer-events-none
+          [background-image:linear-gradient(rgba(255,255,255,.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.15)_1px,transparent_1px)]
+          [background-size:45px_45px]
+          [transform:perspective(1000px)_rotateX(70deg)_translateY(-180px)]
+        "
+      />
+
+      {/* Onda central */}
+      <div className="wave-bg absolute pointer-events-none" />
       <div className="relative max-w-[1320px] mx-auto px-6">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <div className="liquid-glass inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6">
@@ -38,42 +60,142 @@ export default function SolutionSection() {
         </div>
 
         {/* Feature list */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-16 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16 max-w-6xl mx-auto">       
           {features.map((f) => (
-            <div key={f} className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-              <div className="w-6 h-6 rounded-full bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
-                <CheckCircle size={12} className="text-emerald-400" />
+          <div
+            key={f}
+            className="
+              group
+              relative
+              overflow-hidden
+              rounded-2xl
+              border
+              border-cyan-400/10
+              bg-slate-900/70
+              backdrop-blur-xl
+              px-6
+              py-5
+              transition-all
+              duration-500
+              hover:-translate-y-1
+              hover:border-cyan-400/40
+              hover:shadow-[0_0_30px_rgba(34,211,238,.15)]
+            "
+          >
+            {/* Glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.12),transparent_60%)]" />
+
+            {/* Línea inferior */}
+            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-500" />
+
+            <div className="relative flex items-center gap-4">
+
+              <div
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  bg-emerald-500/15
+                  flex
+                  items-center
+                  justify-center
+                  transition-all
+                  duration-500
+                  group-hover:scale-110
+                  group-hover:rotate-12
+                  group-hover:bg-emerald-500/25
+                "
+              >
+                <CheckCircle
+                  size={18}
+                  className="text-emerald-400"
+                />
               </div>
-              <span className="text-white/60 text-sm">{f}</span>
+
+              <span className="text-white/80 text-base leading-snug font-medium">
+                {f}
+              </span>
+
             </div>
-          ))}
+          </div>
+        ))}
         </div>
 
         {/* Solution cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => {
             const Icon = card.icon
+
             return (
               <div
                 key={card.title}
-                className="liquid-glass-card rounded-2xl p-7 group hover:-translate-y-2 transition-all duration-300"
+                className="relative group rounded-3xl overflow-hidden p-[2px] transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02]"
+
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect()
+
+                  e.currentTarget.style.setProperty(
+                    "--x",
+                    `${e.clientX - rect.left}px`
+                  )
+
+                  e.currentTarget.style.setProperty(
+                    "--y",
+                    `${e.clientY - rect.top}px`
+                  )
+                }}
+
+                style={{
+                  background:
+                    "linear-gradient(180deg,#06b6d4,#3b82f6,#14b8a6)",
+                  backgroundSize: "100% 300%",
+                  animation: "borderRotate 6s linear infinite"
+                }}
               >
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full overflow-hidden">
-                  <div className={`h-full bg-gradient-to-r ${card.gradient} w-0 group-hover:w-full transition-all duration-500`} />
-                </div>
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} bg-opacity-10 flex items-center justify-center mb-5 transition-transform group-hover:scale-110 group-hover:rotate-[-5deg]`}
-                  style={{ background: `linear-gradient(135deg, ${card.gradient.includes('blue') ? 'rgba(37,99,235,0.15)' : card.gradient.includes('emerald') ? 'rgba(5,150,105,0.15)' : card.gradient.includes('amber') ? 'rgba(217,119,6,0.15)' : 'rgba(124,58,237,0.15)'}, transparent)` }}
+                <div
+                  className="relative rounded-[22px] h-full bg-slate-900 p-7 overflow-hidden"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,.08), transparent 55%)"
+                  }}
                 >
-                  <Icon size={24} className="text-white/80" />
-                </div>
-                <h3 className="text-white text-base font-bold mb-2">{card.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed mb-4">{card.desc}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {card.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 rounded-full bg-white/[0.05] text-white/50 text-[10px] font-bold font-mono tracking-wide">
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Glow superior */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/5 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Icono */}
+                  <div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center shadow-lg transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6`}
+                  >
+                    <Icon
+                      size={28}
+                      className="text-white"
+                    />
+                  </div>
+
+                  {/* Título */}
+                  <h3 className="text-white text-lg font-bold mt-6 mb-3">
+                    {card.title}
+                  </h3>
+
+                  {/* Descripción */}
+                  <p className="text-white/55 text-sm leading-7 mb-6">
+                    {card.desc}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {card.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 rounded-full text-[11px] font-semibold border border-cyan-400/20 bg-cyan-400/10 text-cyan-200 transition-all duration-300 group-hover:border-cyan-300/40 group-hover:bg-cyan-400/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Línea inferior */}
+                  <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-500 group-hover:w-full" />
                 </div>
               </div>
             )

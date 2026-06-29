@@ -144,6 +144,222 @@ body {
   50% { background-position: 100% 50%; }
 }
 
+.solution-cards-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.solution-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.solution-cards-title {
+  grid-column: 1 / -1;
+  font-size: clamp(3rem, 4vw, 4.5rem);
+  line-height: 1.03;
+  font-weight: 800;
+  color: white;
+}
+
+.solution-card {
+  position: relative;
+  min-height: 270px;
+  padding: 2.6rem 2.2rem;
+  border-radius: 28px;
+  overflow: hidden;
+  color: white;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 24px 60px rgba(0, 0, 0, 0.26);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+}
+
+.solution-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.solution-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.solution-card-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.solution-card-date span {
+  font-size: 1rem;
+  font-weight: 700;
+  opacity: 0.78;
+}
+
+.solution-card-bottom h2 {
+  font-size: 2rem;
+  line-height: 1.05;
+  margin-top: 1.8rem;
+}
+
+.solution-bookmark {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.solution-bookmark:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.solution-bookmark-icn path {
+  fill: white;
+}
+
+.solution-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.solution-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.solution-card-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  width: 90%;
+  height: 100%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  z-index: -2;
+  border-radius: 28px;
+  filter: blur(14px);
+  opacity: 0.72;
+}
+
+.solution-card-shadow .solution-card-img {
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .solution-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .solution-card-bottom h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@keyframes borderRotate {
+
+    0%{
+        filter:hue-rotate(0deg);
+    }
+
+    100%{
+        filter:hue-rotate(360deg);
+    }
+
+}
+.wave-bg{
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(34,211,238,.12),
+        rgba(34,211,238,.05) 35%,
+        transparent 70%
+    );
+
+    filter:blur(30px);
+
+    animation:wave 8s ease-in-out infinite;
+
+    z-index:0;
+
+}
+
+@keyframes wave{
+
+0%{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+opacity:.25;
+
+}
+
+50%{
+
+transform:
+translate(-50%,-50%)
+scale(1.18);
+
+opacity:.45;
+
+}
+
+100%{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+opacity:.25;
+
+}
+
+}
+
+
 /* ================================================================
    DETECTION BOX ANIMATIONS
    ================================================================ */
